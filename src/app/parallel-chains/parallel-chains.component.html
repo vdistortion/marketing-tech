@@ -1,0 +1,8 @@
+@for (status of statuses; track i; let i = $index) {
+  <div>
+    {{ i + 1 }}:
+    <strong>{{ status }}</strong>
+  </div>
+}
+
+<button (click)="startChains()">Запустить цепочки</button>

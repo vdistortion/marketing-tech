@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div formArrayName="fields">
+    @for (field of fields.controls; track field; let i = $index) {
+      <div>
+        <input [formControlName]="i"/>
+        <button type="button" (click)="removeField(i)">Remove</button>
+
+        @if (isInvalid(i)) {
+          <div class="error">
+            @if (field.errors?.['required']) {
+              Поле обязательно
+            }
+            @else if (field.errors?.['minlength']) {
+              Минимум 3 символа
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <div class="buttons">
+    <button type="button" (click)="addField()">Add Field</button>
+    <button>Submit</button>
+  </div>
+</form>
