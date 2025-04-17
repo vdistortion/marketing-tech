@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /marketing-tech/ && cd dist/marketing-tech/browser && cp index.html 404.html",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "public:gh": "gh-pages -d dist/marketing-tech/browser",
+    "public": "npm run build && npm run public:gh"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +28,7 @@
     "@angular/cli": "^19.0.4",
     "@angular/compiler-cli": "^19.0.0",
     "@types/jasmine": "~5.1.0",
+    "gh-pages": "^6.3.0",
     "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
